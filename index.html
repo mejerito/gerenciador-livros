@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <title>Gerenciador de Livros</title>
+</head>
+<body>
+    <!-- <div class="container">
+        <h2>Lista de livros</h2>
+       
+            <input type="text" placeholder="Adicione um livro" class="js-novo-livro form-control"> <br>
+            <input type="text" placeholder="Nome do Autor" class="js-novo-autor form-control"> <br>
+            <button @click="addItem"  type="button" class="js-add btn btn-primary btn-block">Adicionar</button>
+            
+       
+        <ul>
+            <li>
+                <div class="checkbox">
+                    <label>
+                        <input class="js-livro" name="list" type="checkbox">
+                        <big>Quem é miles morales</big> - <small>Michael bands</small>
+                    </label>
+                </div>
+            </li>
+            <li class="removido">
+                <div class="checkbox">
+                    <label>
+                        <input class="js-livro" name="list" type="checkbox" checked>
+                        <big>Deadpool</big> - <small>Jason Pearson</small>
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div> -->
+    <div id="app" class="container">
+        <h2>{{cabecalho}}</h2>
+        <input @keyup.enter="addLivro" v-model="novoLivro" placeholder="Adicionar novo livro" type="text" class="form-control">
+        <input type="text" v-model="novoAutor" @keyup.enter="addLivro" placeholder="Adicionar novo autor" class="form-control"> <br>
+        <span class="input-group-btn">
+            <button @click="addLivro" class="js-add btn btn-primary btn-block" type="button">Adicionar!</button>
+        </span>
+        <ul>
+            <li v-for="livro in livros" v-bind:class='{removido:livro.checked}'>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="js-livro" name="list" v-model="livro.checked">
+                        <big>{{livro.titulo}}</big> - <small>{{livro.autor}}</small>
+                    </label>
+                </div>
+                
+            </li>
+        </ul>
+        <div class="footer">
+            <hr>
+            <em>Modifique o titulo da lista</em>
+            <input v-model="cabecalho">
+        </div>
+     </div>
+    
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
