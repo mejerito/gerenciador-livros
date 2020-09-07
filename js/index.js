@@ -15,10 +15,10 @@ $(document).ready(function(){
         $label = $('<label>').appendTo($div);
         $('<input>').attr('type', 'checkbox').addClass('js-livro').attr('name', 'list').click(toggleRemovido).appendTo($label);
         $('<big>').appendTo($label).append(livro);
-        $label.append(" - ");
+        // $label.append(" - ");
         $('<small>').appendTo($label).append(autor);
 
-        $('.js-novo-livro, .js-novo-autor').val('');
+        // $('.js-novo-livro, .js-novo-autor').val('');
         
     }
         // Evento de click do checkbox
@@ -33,7 +33,7 @@ $(document).ready(function(){
     
 });
 var data = {
-    livros:[{titulo: 'O poder dos seis', autor:'pittacus lore', checked:true},
+    livros:[{titulo: 'O poder dos seis', autor:'pittacus lore', checked:false},
     {titulo:'Eu sou o numero quatro', autor:'pittacus lore', checked:false}],
     cabecalho: 'Livros Preferidos',
     novoLivro: '',
